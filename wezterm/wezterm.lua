@@ -5,13 +5,14 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- Font
-config.color_scheme = 'rose-pine'
+config.color_scheme = 'Snazzy'
 config.font_size = 16
-config.font = 
+config.font =
     wezterm.font('JetBrains Mono')
 
 -- Window settings
-config.window_background_opacity = 0.92
+config.window_background_opacity = 0.7
+config.macos_window_background_blur = 20
 config.window_decorations = 'RESIZE'
 config.window_close_confirmation = 'AlwaysPrompt'
 config.window_padding = {
@@ -92,48 +93,48 @@ config.keys = {
     {
         key = 'z',
         mods = 'LEADER',
-        action = act.TogglePaneZoomState, 
+        action = act.TogglePaneZoomState,
     },
     {
         key = 's',
         mods = 'LEADER',
-        action = act.RotatePanes 'Clockwise', 
+        action = act.RotatePanes 'Clockwise',
     },
     {
         key = 'r',
         mods = 'LEADER',
-        action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false }, 
+        action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false },
     },
     -- Tabs
     {
         key = 'n',
         mods = 'LEADER',
-        action = act.SpawnTab('CurrentPaneDomain'), 
+        action = act.SpawnTab('CurrentPaneDomain'),
     },
     {
         key = '[',
         mods = 'LEADER',
-        action = act.ActivateTabRelative(-1), 
+        action = act.ActivateTabRelative(-1),
     },
     {
         key = ']',
         mods = 'LEADER',
-        action = act.ActivateTabRelative(1), 
+        action = act.ActivateTabRelative(1),
     },
     {
         key = 't',
         mods = 'LEADER',
-        action = act.ShowTabNavigator, 
+        action = act.ShowTabNavigator,
     },
     {
         key = 'm',
         mods = 'LEADER',
-        action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false }, 
+        action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false },
     },
     {
         key = 'w',
         mods = 'LEADER',
-        action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' }, 
+        action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },
     },
     -- Send "CMD-A" to the terminal when pressing CMD-A, CMD-A
     {
@@ -175,7 +176,7 @@ config.key_tables = {
     { key = 'RightArrow', action = act.MoveTabRelative(-1)  },
     { key = 'l', action = act.MoveTabRelative(-1)  },
 
-    { key = 'UpArrow', action = act.MoveTabRelative(1) }, 
+    { key = 'UpArrow', action = act.MoveTabRelative(1) },
     { key = 'k', action = act.MoveTabRelative(1) },
 
     { key = 'DownArrow', action = act.MoveTabRelative(1) },
