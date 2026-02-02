@@ -1,0 +1,71 @@
+theme = Gruvbox Material Dark
+font-family = "Iosevka Term"
+font-size = 18
+adjust-cursor-thickness = 1
+mouse-hide-while-typing = true
+cursor-style = block
+
+clipboard-read = allow
+clipboard-write = allow
+
+working-directory = /Users/luisrondow/dev
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style= transparent
+title = " "
+macos-icon = official
+
+background-opacity = 0.95
+background-blur-radius = 20
+window-padding-balance = true
+
+# Leader: Cmd+a (Ghostty waits indefinitely for the next key in the sequence)
+# Cancel leader (do nothing)
+keybind = cmd+a>escape=ignore
+keybind = cmd+a>enter=ignore
+
+# If you press Cmd+a twice, perform the default Select All
+# (Terminals can't "send Cmd+a" to the child; this keeps the UX sane.)
+keybind = cmd+a>cmd+a=select_all
+
+# Copy mode (WezTerm: ActivateCopyMode) — no direct equivalent in Ghostty.
+# Option A: open scrollback in an editor (handy for searching)
+keybind = cmd+a>c=write_scrollback_file:open
+# Option B (alternative): copy current selection (only acts if there is one)
+# keybind = performable:cmd+a>c=copy_to_clipboard
+
+# Splits
+# WezTerm SplitHorizontal -> Ghostty new_split:right
+keybind = cmd+a>\=new_split:right
+# WezTerm SplitVertical -> Ghostty new_split:down
+keybind = cmd+a>-=new_split:down
+
+# Focus pane (h/j/k/l)
+keybind = cmd+a>h=goto_split:left
+keybind = cmd+a>j=goto_split:down
+keybind = cmd+a>k=goto_split:up
+keybind = cmd+a>l=goto_split:right
+
+# Close pane (surface) and zoom
+keybind = cmd+a>x=close_surface
+keybind = cmd+a>z=toggle_split_zoom
+keybind = cmd+a>e=equalize_splits
+
+# Resize “mode” via sequences (r or m then arrows or h/j/k/l)
+# Adjust the ",10" pixel amount to taste (e.g., 5, 10, 15).
+keybind = cmd+a>r>left=resize_split:left,20
+keybind = cmd+a>r>h=resize_split:left,20
+keybind = cmd+a>r>right=resize_split:right,20
+keybind = cmd+a>r>l=resize_split:right,20
+keybind = cmd+a>r>up=resize_split:up,20
+keybind = cmd+a>r>k=resize_split:up,20
+keybind = cmd+a>r>down=resize_split:down,20
+keybind = cmd+a>r>j=resize_split:down,20
+keybind = cmd+a>r>escape=ignore
+keybind = cmd+a>r>enter=ignore
+
+# Tabs
+keybind = cmd+a>n=new_tab
+keybind = cmd+a>[=previous_tab
+keybind = cmd+a>]=next_tab
+keybind = shift+enter=text:\x1b\r
